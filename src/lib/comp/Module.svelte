@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { selectedModules } from "$lib/stores";
     import { createEventDispatcher } from "svelte";
 
     export let module: ModuleData;
@@ -9,10 +10,11 @@
 
     let checked: boolean = false;
     function toggle(_event: Event) {
-        dispatch("toggle", {
-            module,
-            selected: (<HTMLInputElement>_event.target).checked,
-        });
+        if((<HTMLInputElement>_event.target).checked) {
+            selectedModules.update(sm => sm.add(module));
+        } else {
+            selectedModules.update(sm => {sm.delete(module); return sm});
+        }
     }
 </script>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ModuleSelector from "./ModuleSelector.svelte";
+    import { selectedModules } from "$lib/stores";
     let releases: Release[] = [];
     let promise = loadReleases();
     let selectedReleaseId: number;
@@ -43,7 +44,7 @@
         <input type="text" name="search" id="search" placeholder="search..."/>
         <div></div>
     </div>
-    <button class="dl highlight">Download</button>
+    <button class="dl highlight" disabled={$selectedModules.size === 0}>Download</button>
 </div>
 <div id="modules" class="rounded">
     {#await promise}

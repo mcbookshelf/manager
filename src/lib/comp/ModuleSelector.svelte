@@ -1,18 +1,32 @@
 <script lang="ts">
+    import {
+        datapacks,
+        recommendedModules,
+        requiredModules,
+        selectedModules,
+    } from "$lib/stores";
     import Module from "./Module.svelte";
 
     export let releases: Release[] = [];
     export let selectedReleaseId: number = -1;
 
-    let datapackData: DatapackData[] = [];
     $: selectedRelease = releases.find((v) => v.id === selectedReleaseId);
     $: moduleListener = loadModules(selectedRelease);
 
     async function loadModules(_selectedRelease: Release | undefined) {
-        datapackData = [];
-        selectedModules.clear();
-        recommendedModules.clear();
-        requiredModules.clear();
+        datapacks.set([]);
+        selectedModules.update((m) => {
+            m.clear();
+            return m;
+        });
+        recommendedModules.update((m) => {
+            m.clear();
+            return m;
+        });
+        requiredModules.update((m) => {
+            m.clear();
+            return m;
+        });
         if (!_selectedRelease) {
             return;
         }
@@ -26,63 +40,70 @@
                 throw new Error(`${result.status} - ${result.statusText}`);
             }
 
-            datapackData = await result.json();
-            datapackData.sort((a, b) => a.name.localeCompare(b.name));
+            datapacks.set(await result.json());
+            $datapacks.sort((a, b) => a.name.localeCompare(b.name));
         } catch (error) {
             console.error(error);
         }
     }
 
-    let selectedModules: Set<string> = new Set();
-    let requiredModules: Set<string> = new Set();
-    let recommendedModules: Set<string> = new Set();
+    selectedModules.subscribe(() => {
+        let reqM = new Set<string>();
+        let recM = new Set<string>();
 
-    function selectOrDeselectModule(_event: CustomEvent) {
-        let module: ModuleData = _event.detail.module;
-        let selected: boolean = _event.detail.selected;
-
-        if (selected) {
-            selectedModules.add(module.name);
-        } else {
-            selectedModules.delete(module.name);
-        }
-        updateRequiredModules();
-    }
-
-    function updateRequiredModules() {
-        requiredModules.clear();
-        recommendedModules.clear();
-
-        for (let dp of datapackData) {
+        for (let dp of $datapacks) {
             if (!dp.modules) continue;
             for (let module of dp.modules) {
-                if (selectedModules.has(module.name)) {
+                if ($selectedModules.has(module)) {
                     if (module.dependencies) {
                         for (let dep of module.dependencies) {
-                            requiredModules.add(dep);
+                            reqM.add(dep);
                         }
                     }
                     if (module.weak_dependencies) {
                         for (let dep of module.weak_dependencies) {
-                            recommendedModules.add(dep);
+                            recM.add(dep);
                         }
                     }
                 }
             }
         }
 
-        requiredModules = requiredModules;
-        recommendedModules = recommendedModules;
-    }
+        // doublecheck required modules for requirements
+        let modulesToCheck = Array.from(reqM.values());
+        while (modulesToCheck.length > 0) {
+            let moduleToCheck = modulesToCheck.shift();
+            for (let dp of $datapacks) {
+                let module = dp.modules.find(
+                    (module) => module.name === moduleToCheck,
+                );
+                if (!module) continue;
+                if (module.dependencies) {
+                    for (let dep of module.dependencies) {
+                        if(reqM.has(dep)) continue;
+                        reqM.add(dep);
+                        modulesToCheck.push(dep);
+                    }
+                }
+                if (module.weak_dependencies) {
+                    for (let dep of module.weak_dependencies) {
+                        recM.add(dep);
+                    }
+                }
+            }
+        }
+
+        recommendedModules.set(recM);
+        requiredModules.set(reqM);
+    });
 </script>
 
 <div id="module-selector">
-    {selectedReleaseId}
     {#await moduleListener}
         <p>Loading...</p>
     {:then}
-        {#if datapackData.length > 0}
-            {#each datapackData as datapack}
+        {#if $datapacks.length > 0}
+            {#each $datapacks as datapack}
                 <div class="datapack-wrapper">
                     <h2>{datapack.name}</h2>
                     <div class="module-wrapper">
@@ -90,9 +111,10 @@
                             {#each datapack.modules as module}
                                 <Module
                                     {module}
-                                    on:toggle={selectOrDeselectModule}
-                                    required={requiredModules.has(module.name)}
-                                    recommended={recommendedModules.has(module.name)}
+                                    required={$requiredModules.has(module.name)}
+                                    recommended={$recommendedModules.has(
+                                        module.name,
+                                    )}
                                 ></Module>
                             {/each}
                         {:else}
