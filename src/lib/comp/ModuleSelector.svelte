@@ -19,15 +19,15 @@
 
         try {
             let result = await fetch(
-                // `https://raw.githubusercontent.com/Gunivers/Bookshelf/master/${_selectedRelease.tag_name}/manifest.json`,
-                `/testData/datapacks.json`,
+                // `https://raw.githubusercontent.com/Gunivers/Bookshelf/${_selectedRelease.tag_name}/generated/manifest.json`,
+                `/testData/manifest.json`,
             );
             if (!result.ok) {
                 throw new Error(`${result.status} - ${result.statusText}`);
             }
 
             datapackData = await result.json();
-            datapackData.sort((a, b) => a.datapack.localeCompare(b.datapack));
+            datapackData.sort((a, b) => a.name.localeCompare(b.name));
         } catch (error) {
             console.error(error);
         }
@@ -77,13 +77,14 @@
 </script>
 
 <div id="module-selector">
+    {selectedReleaseId}
     {#await moduleListener}
         <p>Loading...</p>
     {:then}
         {#if datapackData.length > 0}
             {#each datapackData as datapack}
                 <div class="datapack-wrapper">
-                    <h2>{datapack.datapack}</h2>
+                    <h2>{datapack.name}</h2>
                     <div class="module-wrapper">
                         {#if datapack.modules}
                             {#each datapack.modules as module}

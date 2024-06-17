@@ -14,8 +14,9 @@ interface Asset {
 }
 
 interface DatapackData {
-    datapack: string,
-    path: string,
+    name: string,
+    description: string,
+    pack_format: number,
     modules: ModuleData[],
 }
 
@@ -25,8 +26,8 @@ interface ModuleData {
     description: string,
     documentation: string,
     icon?: string,
-    path: string,
+    module_path: string,
     weak_dependencies?: string[],
     dependencies?: string[],
-    features?: string[],
+    features?: any[],
 }

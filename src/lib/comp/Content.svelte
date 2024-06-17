@@ -13,7 +13,7 @@
 <style>
     #content {
         flex-grow: 1;
-        margin: 0 5vw;
+        margin: 0 2.5vw;
     }
     @media screen and (max-width: 1480px){
         #content {

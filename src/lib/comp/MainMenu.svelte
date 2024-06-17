@@ -123,6 +123,7 @@
         position: sticky;
         padding: 1rem;
         width: 20%;
+        flex-shrink: 0;
     }
     h1 {
         display: flex;

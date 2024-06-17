@@ -16,6 +16,7 @@
                 ).json();
                 if (releases.length <= 0) return;
                 selectedReleaseId = releases[0].id;
+                releases.unshift({id: -1, assets: [], html_url: "", name: "Latest Unstable", tag_name: "master"})
                 resolve();
             } catch (error) {
                 reject();
@@ -31,7 +32,7 @@
                 <option value="-1">Loading...</option>
             {:then}
                 {#each releases as release, i}
-                    <option value={release.id}>{release.name}</option>
+                    <option value={release.id} selected={selectedReleaseId === release.id}>{release.name}</option>
                 {/each}
             {:catch}
                 <option value="0"

@@ -30,8 +30,8 @@
         <div class="recommended overlay highlight">Recommended</div>
     {/if}
     <img
-        class="module-img"
-        src={module.icon ?? "default.png"}
+        class="module-img rounded"
+        src={module.icon ?? "icons/default.png"}
         alt="{module.display_name} Image"
     />
     <div class="module-body">
@@ -42,11 +42,12 @@
                 rel="noopener noreferrer"
                 class="module-doc highlight"
             >
+            <svg xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 -960 960 960" width="1.3em" fill="#e8eaed"><path d="M300-80q-58 0-99-41t-41-99v-520q0-58 41-99t99-41h500v600q-25 0-42.5 17.5T740-220q0 25 17.5 42.5T800-160v80H300Zm-60-267q14-7 29-10t31-3h20v-440h-20q-25 0-42.5 17.5T240-740v393Zm160-13h320v-440H400v440Zm-160 13v-453 453Zm60 187h373q-6-14-9.5-28.5T660-220q0-16 3-31t10-29H300q-26 0-43 17.5T240-220q0 26 17 43t43 17Z"/></svg>
                 Doc
             </a>
         {/if}
         <span class="module-title">{module.display_name}</span>
-        <span class="module-features">{module.features?.join(", ") ?? ""}</span>
+        <!-- <span class="module-features">{module.features?.join(", ") ?? ""}</span> -->
         <span class="module-description">{module.description}</span>
     </div>
 </label>
@@ -55,11 +56,13 @@
     .module {
         --border-width: 4px;
         position: relative;
-        border: var(--border-width) solid transparent;
+        outline: var(--border-width) solid transparent;
         background-color: var(--background-color-lighter);
         margin: 1rem;
+        display: flex;
+        flex-direction: column;
         width: 300px;
-        height: 200px;
+        height: 400px;
         filter: drop-shadow(0 0.5rem 0.1rem var(--background-color-darker));
         transition:
             filter 0.5s,
@@ -69,7 +72,7 @@
 
     .module:has(input:checked),
     .module.required {
-        border-color: var(--highlight-color);
+        outline-color: var(--highlight-color);
     }
 
     .module-selector {
@@ -80,7 +83,10 @@
 
     .module-img {
         width: 100%;
-        height: 40%;
+        height: 37%;
+        object-fit: cover;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .module-body {
@@ -100,10 +106,12 @@
     .module-doc {
         position: absolute;
         top: 0;
-        right: calc(-1 * var(--border-width));
+        right: 0;
         border-bottom-left-radius: 0.375rem;
-        padding: 0.25rem 1rem;
+        padding: 0.25rem 0.5rem;
         text-decoration: none;
+        display: flex;
+        align-items: center;
     }
 
     .overlay {
