@@ -9,11 +9,9 @@
     let mobileVisible: boolean = false;
 
     async function loadContributors(): Promise<void> {
+        let url = import.meta.env.DEV ? "/testData/contributors.json" : "https://api.github.com/repos/Gunivers/Bookshelf/contributors";
         contributors = await (
-            await fetch(
-                // "https://api.github.com/repos/Gunivers/Bookshelf/contributors",
-                "/testData/contributors.json",
-            )
+            await fetch(url)
         ).json();
     }
 </script>

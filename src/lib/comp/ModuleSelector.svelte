@@ -32,10 +32,8 @@
         }
 
         try {
-            let result = await fetch(
-                // `https://raw.githubusercontent.com/Gunivers/Bookshelf/${_selectedRelease.tag_name}/generated/manifest.json`,
-                `/testData/manifest.json`,
-            );
+            let url = import.meta.env.DEV ? `/testData/manifest.json` : `https://raw.githubusercontent.com/Gunivers/Bookshelf/${_selectedRelease.tag_name}/generated/manifest.json`;
+            let result = await fetch(url);
             if (!result.ok) {
                 throw new Error(`${result.status} - ${result.statusText}`);
             }

@@ -9,11 +9,9 @@
     async function loadReleases(): Promise<void> {
         return new Promise(async (resolve, reject) => {
             try {
+                let url = import.meta.env.DEV ? "/testData/releases.json" : "https://api.github.com/repos/Gunivers/Bookshelf/releases";
                 releases = await (
-                    await fetch(
-                        // "https://api.github.com/repos/Gunivers/Bookshelf/releases",
-                        "/testData/releases.json"
-                    )
+                    await fetch(url)
                 ).json();
                 if (releases.length <= 0) return;
                 selectedReleaseId = releases[0].id;
