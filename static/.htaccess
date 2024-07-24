@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^archive/(.*) http://github.com/Gunivers/Bookshelf/archive/$1 [P]
+RewriteRule ^download/(.*) http://github.com/Gunivers/Bookshelf/releases/download/$1 [P]
