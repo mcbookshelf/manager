@@ -25,13 +25,11 @@
     </div>
     <nav>
         <ul>
-            <a href="# "><li>About</li></a>
-            <a href="# "><li>Tools</li></a>
-            <a href="# "><li>Documentation</li></a>
-            <a href="# "><li>Git Repository</li></a>
-            <a href="# "><li>Report a bug</li></a>
-            <a href="# "><li>Join us!</li></a>
-            <a href="# "><li>Help us</li></a>
+            <a target="_blank" href="https://docs.mcbookshelf.dev/en/latest/"><li>Documentation</li></a>
+            <a target="_blank" href="https://github.com/mcbookshelf/Bookshelf"><li>Git Repository</li></a>
+            <a target="_blank" href="https://github.com/mcbookshelf/Bookshelf/issues"><li>Report a bug</li></a>
+            <a target="_blank" href="https://discord.gg/MkXytNjmBt"><li>Join us!</li></a>
+            <a target="_blank" href="https://docs.mcbookshelf.dev/en/latest/contribute/index.html"><li>Help us</li></a>
         </ul>
     </nav>
 
@@ -96,13 +94,11 @@
     {#if mobileVisible}
         <nav class="mobile-nav">
             <ul>
-                <a href="# "><li>About</li></a>
-                <a href="# "><li>Tools</li></a>
-                <a href="# "><li>Documentation</li></a>
-                <a href="# "><li>Git Repository</li></a>
-                <a href="# "><li>Report a bug</li></a>
-                <a href="# "><li>Join us!</li></a>
-                <a href="# "><li>Help us</li></a>
+                <a target="_blank" href="https://docs.mcbookshelf.dev/en/latest/"><li>Documentation</li></a>
+                <a target="_blank" href="https://github.com/mcbookshelf/Bookshelf"><li>Git Repository</li></a>
+                <a target="_blank" href="https://github.com/mcbookshelf/Bookshelf/issues"><li>Report a bug</li></a>
+                <a target="_blank" href="https://discord.gg/MkXytNjmBt"><li>Join us!</li></a>
+                <a target="_blank" href="https://docs.mcbookshelf.dev/en/latest/contribute/index.html"><li>Help us</li></a>
             </ul>
             <div class="dark-mode-button">
                 <DarkModeSwitch></DarkModeSwitch>
