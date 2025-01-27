@@ -13,11 +13,19 @@
 <style>
     #content {
         flex-grow: 1;
-        margin: 0 2.5vw;
+        margin: 0 2.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
     }
     @media screen and (max-width: 1480px){
         #content {
-            margin: 0 1vw;
+            margin: 0 1.5rem 1.5rem;
+        }
+
+    }
+    @media screen and (max-width: 1024px){
+        #content {
+            margin: 0 1rem 1rem;
         }
 
     }

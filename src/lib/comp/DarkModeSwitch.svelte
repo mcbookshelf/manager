@@ -45,9 +45,6 @@
         place-items: center;
         cursor: pointer;
     }
-    span {
-        margin-right: 1em;
-    }
 
     .light-mode {
         display: none;
@@ -57,12 +54,5 @@
     }
     :global(#darkMode:checked ~ main .dark-mode) {
         display: none;
-    }
-
-    
-    @media screen and (max-width: 820px) {
-        span {
-            display: none;
-        }
     }
 </style>

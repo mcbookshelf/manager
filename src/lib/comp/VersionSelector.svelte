@@ -134,7 +134,14 @@
         disabled={$selectedModules.size === 0}
         on:click={download}
     >
-        Download</button
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        <div>
+            <div class="dl-title">Download</div>
+            <div>All in one datapack</div>
+        </div>
+      </button
     >
 </div>
 <div id="modules" class="rounded">
@@ -159,26 +166,57 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: var(--background-color);
+        background-color: var(--background-color-lighter);
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: 1px solid var(--divider-color);
+        align-items: center;
+        border-bottom: 1px solid #77777733;
     }
     #controlbar-inner {
         padding: 1rem;
     }
     button.dl {
-        height: 4em;
-        width: 10vw;
+        height: 100%;
         border-radius: 0;
+        padding: .5rem 1.5rem;
         border-top-right-radius: 0.375rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7em;
+        font-family: Unbounded;
+    }
+    button.dl .dl-title {
+        font-size: 1.6em;
+        font-weight: 700;
+        text-align: left;
+        margin-bottom: -.2em;
+    }
+    button.dl:not(:disabled):hover svg {
+        transform: translateY(3px);
+    }
+    button.dl:not(:disabled):active svg {
+        transform: translateY(4px);
+    }
+    button.dl:disabled {
+        background-color: #92979c82;
+        cursor: not-allowed;
+    }
+    button.dl svg {
+        height: 1.8em;
+        transition: transform 0.1s;
+    }
+    button.dl > div {
+        padding: 0 1rem;
     }
 
     #modules {
-        padding: 1rem;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         background-color: var(--background-color);
+        overflow: auto;
+        position: relative;
+        flex-grow: 1;
     }
 
     @media screen and (max-width: 820px) {
@@ -193,10 +231,6 @@
 
         #release {
             width: 100%;
-        }
-
-        #search {
-            display: none;
         }
 
         button.dl {

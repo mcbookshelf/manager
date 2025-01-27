@@ -47,7 +47,7 @@
     }
 </script>
 
-<label class="module rounded" class:highlighted={highlighted} for={module.name} class:required id={module.id}>
+<label class="module rounded" class:highlighted={highlighted} for={module.name} class:required class:recommended id={module.id}>
     <input
         type="checkbox"
         name={module.name}
@@ -55,6 +55,7 @@
         class="module-selector"
         on:change={toggle}
     />
+    <span class="checkmark"></span>
     {#if required}
         <div class="required overlay highlight">Required</div>
     {:else if recommended}
@@ -125,21 +126,19 @@
         position: relative;
         outline: var(--border-width) solid transparent;
         background-color: var(--background-color-lighter);
-        margin: 1rem;
         display: flex;
         flex-direction: column;
-        width: 300px;
-        height: 400px;
-        filter: drop-shadow(0 0.5rem 0.1rem var(--background-color-darker));
-        transition:
-            filter 0.5s,
-            color 0.5s,
-            background-color 0.5s;
+        height: 375px;
+        filter: drop-shadow(0.15rem 0.35rem 0.1rem var(--background-color-darker));
+        cursor: pointer;
     }
 
     .module:has(input:checked),
     .module.required {
         outline-color: var(--highlight-color);
+    }
+    .module.recommended {
+        outline-color: #bbb;
     }
 
     .module.highlighted {
@@ -147,9 +146,39 @@
     }
 
     .module-selector {
+        display: none;
+    }
+
+    .checkmark {
         position: absolute;
-        top: 5%;
-        right: 5%;
+        display: block;
+        right: 10px;
+        top: 10px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #00000033;
+    }
+
+    .module-selector:checked ~ .checkmark {
+        border-color: var(--highlight-color);
+        background: var(--highlight-color);
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+    }
+
+    .module-selector:checked ~ .checkmark:after {
+        left: 7px;
+        top: 3px;
+        width: 7px;
+        height: 13px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(38deg);
     }
 
     .module-img {
@@ -186,6 +215,9 @@
         display: flex;
         align-items: center;
     }
+    .module-doc:hover {
+        text-decoration: underline;
+    }
 
     .overlay {
         position: absolute;
@@ -194,7 +226,8 @@
         padding: 0.25em;
         border-top-left-radius: 0.375rem;
     }
-    .recommended {
+
+    .overlay.recommended {
         filter: grayscale(1);
     }
 
@@ -202,10 +235,10 @@
     .module-dependency {
         background-color: var(--background-color-darker);
         padding: 0.2em 0.5em;
-        margin: 0.2em;
         font-size: smaller;
         border-radius: 0.2em;
         text-decoration: none;
+        margin-right: .25rem;
     }
 
     .module-dependencies-wrapper {
@@ -215,21 +248,9 @@
         font-weight: bold;
     }
 
-    @media screen and (max-width: 1480px) {
-        .module {
-            max-width: 30%;
-            margin: 1.5%;
-        }
-        .module-body {
-            padding: 5%;
-        }
-    }
-
     @media screen and (max-width: 1024px) {
         .module {
-            font-size: max(2vw, 0.9em);
-            max-width: 45%;
-            margin: 2.5%;
+            font-size: 0.9em;
         }
     }
 </style>

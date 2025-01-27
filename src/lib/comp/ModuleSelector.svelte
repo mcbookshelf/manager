@@ -132,11 +132,30 @@
     #module-selector {
         display: flex;
         flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        
     }
 
     .module-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    @media screen and (max-width: 1024px) {
+        .module-wrapper {
+            gap: 1rem;
+            padding: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+        }
+    }
+    @media screen and (max-width: 820px) {
+        #module-selector {
+            position: relative;
+        }
     }
 </style>
