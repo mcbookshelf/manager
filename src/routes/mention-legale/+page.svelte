@@ -6,7 +6,7 @@
     <h2>Edition du site</h2>
     
     <p>Le présent site, accessible à l’URL mcbookshelf.dev (le « Site »), est édité par :</p>
-    <p>L’association Altearn, enregistrée auprès de la préfecture/sous-préfecture de 75 - Préfecture de police de Paris sous le numéro W061014075, ayant son siège situé à Appartement 561, 16 rue Curial, 75019 PARIS, représentée par Vincent Foriel dûment habilité(e)</p>
+    <p>L’association Altearn, enregistrée auprès de la préfecture/sous-préfecture de 75 - Préfecture de police de Paris sous le numéro W061014075, ayant son siège situé à Appartement 561, 16 rue Curial, 75019 PARIS, représentée par Vincent Foriel dûment habilité.</p>
 
     <h2>Hébergement</h2>
 
