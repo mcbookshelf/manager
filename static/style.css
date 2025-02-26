@@ -1,191 +1,183 @@
-html,
-body {
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  height: 100%;
-  font-family: Nunito, Geneva, Tahoma, sans-serif;
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
-  --background-color-lighter: #fff;
+body {
   --background-color: #f4f4f4;
   --background-color-darker: #dde0e4;
-  --text-color: #181a1d;
-  --text-color-lighter: #26292e;
-  --title-color: #754e36;
+  --background-color-lighter: #fff;
 
-  --highlight-color: #3f97ff;
-  --highlight-text-color: #fff;
   --divider-color: #bec5ce;
+  --highlight-color: #3b93ff;
+  --highlight-secondary-color: rgb(252, 190, 57);
 
-  --highlight-secondary-color: orange;
+  --text-color: #181a1d;
+  --text-color-highlight: #fff;
+  --text-color-lighter: #26292e;
+  --text-color-logo: #754e36;
 
-  --scrollbar-thumb-bg: #00000019;
-  --scrollbar-thumb-bg-hover: #00000026;
-  --scrollbar-thumb-bg-active: #0000002b;
-  
-  
-  scroll-behavior: smooth;
+  --scrollbar-color: #00000019;
+  --scrollbar-color-hover: #00000026;
+  --scrollbar-color-active: #0000002b;
 }
 
-html:has(#darkMode:checked), body:has(#darkMode:checked) {
-  --text-color-lighter: #f5f5f5;
-  --text-color: #e0e3e7;
-  --title-color: #d6d6d6;
-  --background-color-darker: #1b1c20;
-  --background-color: #21252d;
-  --background-color-lighter: #272b33;
+body.dark-mode {
+  --background-color: #171d25;
+  --background-color-darker: #11151c;
+  --background-color-lighter: #222832;
 
-  --divider-color: #c6cdd6;
-
-  --scrollbar-thumb-bg: #ffffff19;
-  --scrollbar-thumb-bg-hover: #ffffff26;
-  --scrollbar-thumb-bg-active: #ffffff2b;
-
+  --divider-color: #c6cdd644;
   --highlight-color: #3578c8;
-}
 
-main {
-  background-color: var(--background-color-darker);
-  color: var(--text-color);
-}
+  --text-color: #e0e3e7;
+  --text-color-lighter: #f5f5f5;
+  --text-color-logo: #d6d6d6;
 
-* {
-  scroll-margin-top: 2rem;
-  box-sizing: border-box;
+  --scrollbar-color: #ffffff19;
+  --scrollbar-color-hover: #ffffff26;
+  --scrollbar-color-active: #ffffff2b;
 }
 
 *::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-body::-webkit-scrollbar {
-  background: var(--background-color-darker);
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-bg);
+  background: var(--scrollbar-color);
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-bg-hover);
+  background: var(--scrollbar-color-hover);
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background: var(--scrollbar-thumb-bg-active);
+  background: var(--scrollbar-color-active);
 }
 
-.light {
-  color: var(--text-color-lighter);
+body {
+  box-sizing: border-box;
+  background: var(--background-color-darker);
+  color: var(--text-color);
+  font-family: "Nunito", Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-.highlight {
-  background-color: var(--highlight-color);
-  color: var(--highlight-text-color);
-}
-
 button {
   border: none;
-  border-radius: 0.375rem;
   padding: 0.375rem 0.5rem;
   cursor: pointer;
 }
-select {
-  display: inline-block;
-  /* appearance: none; */
-  font-size: 1em;
-  line-height: 1.5;
-  margin: 0;
-  padding: .375rem 2.25rem .375rem .75rem;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  border: 1px solid var(--background-color-darker);
-  border-radius: 0.375rem;
+
+h1, h2, h3, p {
+  overflow-wrap: break-word;
+}
+
+h1, h2 {
+  font-family: "Unbounded";
+  margin: 1rem 0;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 1.4em;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: .5rem 0;
+}
+
+.highlight {
+  background-color: var(--highlight-color);
+  color: var(--text-color-highlight);
+}
+
+.light {
+  color: var(--text-color-lighter);
 }
 
 .rounded {
   border-radius: 0.375rem;
 }
 
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+#content {
+  display: grid;
+  position: relative;
+  padding: 1.5rem 2rem;
+  column-gap: 4.5rem;
+  min-height: 100vh;
+  grid-template-columns: 285px 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr;
+  grid-template-areas:
+    "header main"
+    "aside main"
+    "footer main";
 }
 
-/*
-    2. Remove default margin
-  */
-* {
-  margin: 0;
+#content > aside {
+  grid-area: aside;
 }
 
-/*
-    Typographic tweaks!
-    3. Add accessible line-height
-    4. Improve text rendering
-  */
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+#content > footer {
+  grid-area: footer;
 }
 
-/*
-    5. Improve media defaults
-  */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: inline-block;
-  max-width: 100%;
+#content > header {
+  grid-area: header;
 }
 
-/*
-    6. Remove built-in form typography styles
-  */
-input,
-button,
-textarea,
-select {
-  font: inherit;
+#content > main {
+  grid-area: main;
 }
 
-/*
-    7. Avoid text overflows
-  */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
+@media screen and (max-width: 1480px) {
+  #content {
+    column-gap: 3rem;
+    padding: 1.5rem 1.5rem;
+  }
 }
 
-/*
-    8. Create a root stacking context
-  */
-#root,
-#__next {
-  isolation: isolate;
+@media screen and (max-width: 1024px) {
+  h1 {
+    margin: .75rem 0;
+  }
+  h2 {
+    margin: .5rem 0;
+  }
+  #content {
+    grid-template-columns: 225px 1fr;
+    column-gap: 2rem;
+    padding: 1.5rem 1rem;
+  }
 }
 
-@media screen and (max-width: 820px){
-  * {
-    scroll-margin-top: calc(2rem + 3em);
+@media screen and (max-width: 820px) {
+  #content {
+    padding: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+  #content > aside {
+    display: none;
   }
 }
