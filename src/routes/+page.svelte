@@ -1,5 +1,5 @@
 <script lang="ts">
-    import VersionSelector from "$lib/comp/VersionSelector.svelte";
+  import ModuleManager from "$lib/comp/ModuleManager.svelte";
 </script>
 
-<VersionSelector />
+<ModuleManager></ModuleManager>

@@ -1,10 +1,10 @@
-<div class="rounded">
+<main class="rounded">
     <h1>Mentions Légales</h1>
 
     <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site mcbookshelf l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
-    
+
     <h2>Edition du site</h2>
-    
+
     <p>Le présent site, accessible à l’URL mcbookshelf.dev (le « Site »), est édité par :</p>
     <p>L’association Altearn, enregistrée auprès de la préfecture/sous-préfecture de 75 - Préfecture de police de Paris sous le numéro W061014075, ayant son siège situé à Appartement 561, 16 rue Curial, 75019 PARIS, représentée par Vincent Foriel dûment habilité.</p>
 
@@ -24,10 +24,10 @@
 
     <h2>Données personnelles</h2>
     <p>Nous traitons certaines données personnelles, telles que votre adresse IP, votre user-agent et d'autres informations techniques similaires, dans le but de faire fonctionner correctement notre site. Le traitement de ces données est nécessaire à l'exécution du contrat d'utilisation du site, et ce, conformément à la base légale suivante : exécution du contrat. Nous ne traitons aucune autre donnée personnelle vous concernant.</p>
-</div>
+</main>
 
 <style>
-    div {
+    main {
         padding: 1em;
         background-color: var(--background-color);
     }
