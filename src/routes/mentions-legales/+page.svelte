@@ -31,4 +31,8 @@
         padding: 1em;
         background-color: var(--background-color);
     }
+    h1 {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--divider-color);
+    }
 </style>
