@@ -2,9 +2,9 @@ name: Build And Upload
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: 
+  workflow_dispatch:
 
-concurrency: 
+concurrency:
   group: "build"
   cancel-in-progress: true
 
@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get latest code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
-        with: 
-          node-version: 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
           cache: "npm"
       - name: Build Sveltekit
-        run: | 
+        run: |
           npm i
           npm run build
       - name: Upload to Server 📁
