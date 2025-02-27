@@ -6,7 +6,7 @@
     <h2>Edition du site</h2>
 
     <p>Le présent site, accessible à l’URL mcbookshelf.dev (le « Site »), est édité par :</p>
-    <p>L’association Altearn, enregistrée auprès de la préfecture/sous-préfecture de 75 - Préfecture de police de Paris sous le numéro W061014075, ayant son siège situé à Appartement 561, 16 rue Curial, 75019 PARIS, représentée par Vincent Foriel dûment habilité.</p>
+    <p>L’association Altearn, enregistrée auprès de la préfecture de police de Paris au répertoire national des associations sous le numéro W061014075, ayant son siège situé à Appartement 561, 16 rue Curial, 75019 PARIS, et représentée par Vincent Foriel, président.</p>
 
     <h2>Hébergement</h2>
 
@@ -14,7 +14,7 @@
 
     <h2>Directeur de publication</h2>
 
-    <p>Le Directeur de la publication du Site est l’association Altearn.</p>
+    <p>La direction de publication du Site est assurée par le·a président·e de l'association Altearn.</p>
 
     <h2>Nous contacter</h2>
 
@@ -23,7 +23,7 @@
     <p>Par courrier : Appartement 561, 16 rue Curial, 75019 Paris</p>
 
     <h2>Données personnelles</h2>
-    <p>Nous traitons certaines données personnelles, telles que votre adresse IP, votre user-agent et d'autres informations techniques similaires, dans le but de faire fonctionner correctement notre site. Le traitement de ces données est nécessaire à l'exécution du contrat d'utilisation du site, et ce, conformément à la base légale suivante : exécution du contrat. Nous ne traitons aucune autre donnée personnelle vous concernant.</p>
+    <p>Nous traitons certaines données personnelles, telles que votre adresse IP, votre user-agent et d'autres informations techniques similaires, dans le but de faire fonctionner correctement notre site. Le traitement de ces données étant strictement nécessaire pour le fonctionnement du site, celui-ci est licite conformément à l'article 6.1(b) du RGPD (base légale "le traitement est nécessaire à l'exécution d'un contrat"). Nous ne traitons aucune autre donnée personnelle vous concernant.</p>
 </main>
 
 <style>
