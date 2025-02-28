@@ -14,31 +14,23 @@
   });
 </script>
 
-<main class="rounded">
-  <ModuleControls></ModuleControls>
-  <section aria-label="Available Modules">
-    {#await promise}
-      <p>Loading...</p>
-    {:then}
-      <ul>
-        {#each $modules.values() as module}
-          <li><ModuleTile {module}></ModuleTile></li>
-        {/each}
-      </ul>
-    {:catch}
-      <p>Something went wrong when trying to fetch modules.</p>
-    {/await}
-  </section>
-</main>
+<ModuleControls></ModuleControls>
+<section aria-label="Available Modules">
+  {#await promise}
+    <p>Loading...</p>
+  {:then}
+    <ul>
+      {#each $modules.values() as module}
+        <li><ModuleTile {module}></ModuleTile></li>
+      {/each}
+    </ul>
+  {:catch}
+    <p>Something went wrong when trying to fetch modules.</p>
+  {/await}
+</section>
+
 
 <style>
-  main {
-    display: flex;
-    background: var(--background-color);
-    flex-direction: column;
-    margin-top: 2.75rem;
-    overflow: hidden;
-  }
   section {
     flex-grow: 1;
     overflow: auto;
@@ -76,10 +68,6 @@
     }
   }
   @media screen and (max-width: 820px) {
-    main {
-      margin-top: 0;
-      border-radius: 0;
-    }
     ul {
       position: relative;
     }
