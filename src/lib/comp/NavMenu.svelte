@@ -24,8 +24,8 @@
 <nav aria-label="Bookshelf Links">
   <ul>
     <li><a target="_blank" href="https://docs.mcbookshelf.dev/en/latest" rel="noopener noreferrer"><Icon type="book-marked" size="1em"></Icon>Documentation</a></li>
-    <li><a target="_blank" href="https://github.com/mcbookshelf/Bookshelf" rel="noopener noreferrer"><Icon type="github" size="1em"></Icon>Git Repository</a></li>
-    <li><a target="_blank" href="https://github.com/mcbookshelf/Bookshelf/issues" rel="noopener noreferrer"><Icon type="bug" size="1em"></Icon>Report a bug</a></li>
+    <li><a target="_blank" href="https://github.com/mcbookshelf/bookshelf" rel="noopener noreferrer"><Icon type="github" size="1em"></Icon>Git Repository</a></li>
+    <li><a target="_blank" href="https://github.com/mcbookshelf/bookshelf/issues" rel="noopener noreferrer"><Icon type="bug" size="1em"></Icon>Report a bug</a></li>
     <li><a target="_blank" href="https://discord.gg/MkXytNjmBt" rel="noopener noreferrer"><Icon type="headset" size="1em"></Icon>Discord</a></li>
     <li><a target="_blank" href="https://docs.mcbookshelf.dev/en/latest/contribute" rel="noopener noreferrer"><Icon type="heart-handshake" size="1em"></Icon>Contribute</a></li>
   </ul>

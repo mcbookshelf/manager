@@ -105,7 +105,7 @@
     z-index: 1;
   }
   .controls {
-    padding: 0 .75rem;
+    padding: .5rem .75rem;
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -270,9 +270,14 @@
 
   @media screen and (max-width: 820px) {
     nav {
-      position: fixed;
+      position: sticky;
+      flex-direction: column;
+      filter: drop-shadow(0.1rem -0.1rem 0.2rem #00000022);
       bottom: 0;
       width: 100%;
+    }
+    .controls {
+      margin: auto;
     }
   }
 </style>

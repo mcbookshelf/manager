@@ -19,7 +19,7 @@
 <main class="rounded">
   <slot />
 </main>
-<footer>&copy;&nbsp;Gunivers {new Date().getFullYear()} - <a href="/mentions-legales">Mentions légales</a></footer>
+<footer>&copy;&nbsp;Gunivers {new Date().getFullYear()}&nbsp;-&nbsp;<a href="/mentions-legales">Mentions légales</a></footer>
 
 <style>
   main {
@@ -36,6 +36,7 @@
     gap: 0.5rem;
   }
   header a {
+    flex: 1 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -66,6 +67,7 @@
   footer {
     display: flex;
     align-items: end;
+    flex-wrap: wrap;
   }
   @media screen and (max-width: 1024px) {
     aside {
@@ -79,14 +81,20 @@
     main {
       margin-top: 0;
       border-radius: 0;
+      flex-direction: column-reverse;
+      overflow: unset
     }
     header {
+      z-index: 10;
       position: sticky;
       background: var(--background-color-darker);
       border-bottom: 1px solid #99999955;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
       margin: 0;
       top: 0;
-      z-index: 1;
       gap: 0;
     }
     header h1 {
@@ -100,6 +108,10 @@
     }
     header p {
       display: none;
+    }
+    footer {
+      justify-content: center;
+      padding: 1rem 1rem 1rem 1rem
     }
   }
 </style>

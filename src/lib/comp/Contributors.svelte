@@ -6,7 +6,7 @@
   }[]> => {
     const url = import.meta.env.DEV
       ? "/stubs/contributors.json"
-      : "https://api.github.com/repos/Gunivers/Bookshelf/contributors";
+      : "https://api.github.com/repos/mcbookshelf/bookshelf/contributors";
 
     return await (await fetch(url)).json();
   })();
@@ -27,7 +27,7 @@
       {/each}
     </ul>
     {#if contributors.length > 10}
-      <a href="https://github.com/Gunivers/Bookshelf/graphs/contributors" target="_blank">
+      <a href="https://github.com/mcbookshelf/bookshelf/graphs/contributors" target="_blank">
         +{contributors.length - 9} contributors
       </a>
     {/if}

@@ -8,6 +8,9 @@ export const requiredModules = writable(new Set<string>());
 export const recommendedModules = writable(new Set<string>());
 export const selectedVersion = writable("");
 
+modules.subscribe(() => {
+  selectedModules.set(new Set<string>());
+})
 
 selectedModules.subscribe((selected) => {
   const map = get(modules);
