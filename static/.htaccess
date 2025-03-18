@@ -2,8 +2,11 @@
   RewriteEngine On
   RewriteBase /
 
-  # Redirect all requests to index.html except for actual files and directories
+  # If the request is not for an actual file or directory
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+
+  # Append .html to the request if it's missing
+  RewriteCond %{REQUEST_URI} !\.html$
+  RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
