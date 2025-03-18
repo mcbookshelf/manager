@@ -38,7 +38,7 @@
   }
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
     gap: 1.75rem;
     top: 0;
     left: 0;

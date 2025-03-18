@@ -65,7 +65,7 @@
     filter: drop-shadow(0.15rem 0.35rem 0.1rem var(--background-color-darker));
     flex-direction: column;
     height: 100%;
-    min-height: 375px;
+    min-height: 24rem;
     outline: 4px solid transparent;
     overflow: hidden;
     position: relative;
