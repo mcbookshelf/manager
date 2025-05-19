@@ -2,11 +2,19 @@
   RewriteEngine On
   RewriteBase /
 
-  # If the request is not for an actual file or directory
+  # Redirect www to non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Force HTTPS (for all traffic)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Don't rewrite existing files or directories
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 
-  # Append .html to the request if it's missing
-  RewriteCond %{REQUEST_URI} !\.html$
+  # Add .html if missing
+  RewriteCond %{REQUEST_URI} !\.html$ [NC]
   RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
