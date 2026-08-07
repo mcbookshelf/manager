@@ -31,7 +31,7 @@
       return modules;
     })
   }/>
-  <img src={module.banner ?? "banner.png"} alt="" role="presentation" />
+  <img src={module.icon ?? "icon.png"} style="background: url({module.banner ?? "banner.jpg"}) no-repeat center / cover;" alt="{module.name} Banner" role="presentation" />
   <section class="content">
     <a class="doc highlight" target="_blank" href={module.documentation} aria-label="{module.name} Documentation">
       <Icon type="book" size="1em"></Icon>Doc
@@ -128,8 +128,10 @@
     margin: -1.5rem 0 1.5rem;
   }
   img {
-    object-fit: cover;
-    width: 100%;
+    object-position: left;
+    object-fit: contain;
+    height: 120px;
+    background: url(banner.jpg?v=2) no-repeat center / cover;
     -webkit-user-drag: none;
   }
   .content  {

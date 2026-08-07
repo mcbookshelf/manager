@@ -11,7 +11,7 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
   src: url('fonts/unbounded.woff2');
 }
 
-body {
+:root {
   --background-color: #f4f4f4;
   --background-color-darker: #dde0e4;
   --background-color-lighter: #fff;
@@ -30,7 +30,7 @@ body {
   --scrollbar-color-active: #0000002b;
 }
 
-body.dark-mode {
+:root.dark-mode {
   --background-color: #171d25;
   --background-color-darker: #11151c;
   --background-color-lighter: #222832;
@@ -100,12 +100,12 @@ h1, h2 {
 
 h1 {
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.45em;
 }
 
 h2 {
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1.375em;
 }
 
 h3 {

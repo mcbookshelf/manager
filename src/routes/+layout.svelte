@@ -26,7 +26,7 @@
     display: flex;
     background: var(--background-color);
     flex-direction: column;
-    margin-top: 2.75rem;
+    margin-top: 2.25rem;
     overflow: hidden;
   }
   header {
@@ -40,7 +40,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     text-decoration: none;
   }
   header h1 {
@@ -50,7 +50,7 @@
   }
   header img {
     filter: drop-shadow(0.15rem 0.35rem 0.15rem #00000033);
-    width: 100px;
+    width: 60px;
   }
   header p {
     flex-basis: 100%;
@@ -76,6 +76,9 @@
     header img {
       width: 64px;
     }
+    header a {
+      gap: 0.75rem;
+    }
   }
   @media screen and (max-width: 820px) {
     main {
@@ -95,6 +98,9 @@
       flex-wrap: wrap;
       margin: 0;
       top: 0;
+      gap: 0;
+    }
+    header a {
       gap: 0;
     }
     header h1 {

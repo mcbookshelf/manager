@@ -29,7 +29,7 @@
   .mtxserv a:hover {
     transform: translateX(2px);
   }
-  :global(body:not(.dark-mode)) .mtxserv svg {
+  :global(:root:not(.dark-mode)) .mtxserv svg {
     filter: invert(1);
   }
 </style>

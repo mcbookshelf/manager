@@ -5,7 +5,7 @@
 
   const setTheme = (darkMode: boolean) => {
     isDarkMode = darkMode;
-    document.body.classList.toggle("dark-mode", darkMode);
+    document.documentElement.classList.toggle("dark-mode", darkMode);
     localStorage.setItem("dark-mode", String(darkMode));
   };
 
@@ -31,9 +31,9 @@
   </ul>
   <button aria-label="Toggle Theme" onclick={() => setTheme(!isDarkMode)} tabindex="-1">
     {#if isDarkMode}
-      <Icon type="light" size="2em"></Icon>
+      <Icon type="light" size="1.5em"></Icon>
     {:else}
-      <Icon type="dark" size="2em"></Icon>
+      <Icon type="dark" size="1.5em"></Icon>
     {/if}
   </button>
 </nav>
@@ -59,8 +59,8 @@
     border-radius: 50%;
     color: var(--background-color);
     top: 1rem;
-    right: 3.5rem;
-    padding: 0.25em;
+    right: 3rem;
+    padding: 0.275em;
   }
   label {
     display: none;
